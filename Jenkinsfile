@@ -1,17 +1,20 @@
 pipeline {
     agent any
     tools {
-        maven '3.6.3'
+        // Specify the Maven tool name as configured in Jenkins Global Tool Configuration
+        maven 'maven-3.6.3'  // Use the name 'maven-3.6.3' as configured in the Global Tool Configuration
     }
     stages {
         stage('Clean and Install') {
             steps {
-               bat 'mvn clean install'
+               // Run Maven clean install using shell command
+               sh 'mvn clean install'
             }
         }
         stage('Package') {
             steps {
-               bat 'mvn package'
+               // Run Maven package using shell command
+               sh 'mvn package'
             }
         } 
     }
